@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 乐鱼体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce4c5 0%, #f8d5a8 40%, #f5c692 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #3a2e23;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: #fefcf7;
+            border-radius: 48px 48px 40px 40px;
+            padding: 2.8rem 2.4rem 3rem 2.4rem;
+            box-shadow: 0 25px 45px -10px rgba(140, 85, 30, 0.25);
+            backdrop-filter: blur(2px);
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 2rem 1.2rem 2.5rem 1.2rem;
+                border-radius: 32px;
+            }
+        }
+
+        .greeting {
+            font-size: 1.6rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            color: #8b5a2b;
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid #eddac0;
+            display: inline-block;
+        }
+
+        .opening {
+            font-size: 1.15rem;
+            margin: 1.5rem 0 1.2rem 0;
+            color: #4f3d2c;
+        }
+
+        .opening strong {
+            font-weight: 550;
+            color: #a56638;
+        }
+
+        .story-block {
+            margin: 1.6rem 0 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .story-block p {
+            font-size: 1.02rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 520;
+            margin: 0.3rem 0 0.9rem 0;
+            color: #7c5d3a;
+            letter-spacing: 0.3px;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.8rem 0;
+        }
+
+        .feature-grid li {
+            background: #f7f1e7;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px 20px 20px 60px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 6px solid #dbb58b;
+            transition: background 0.15s;
+        }
+
+        .feature-grid li::before {
+            content: "·";
+            font-weight: 700;
+            font-size: 1.9rem;
+            color: #af7e4c;
+            line-height: 1;
+            margin-right: 0.15rem;
+        }
+
+        .soft-link {
+            display: inline-block;
+            background: #f7ede0;
+            border-radius: 60px;
+            padding: 0.2rem 0.9rem 0.25rem 0.9rem;
+            color: #7a5c3b;
+            font-weight: 480;
+            text-decoration: none;
+            border: 1px solid #ddc8b0;
+            transition: all 0.15s ease;
+            margin: 0 0.1rem;
+        }
+
+        .soft-link:hover {
+            background: #e7d2bb;
+            border-color: #b7936e;
+            color: #4c341e;
+            box-shadow: 0 2px 6px rgba(130, 80, 30, 0.1);
+        }
+
+        .final-note {
+            margin: 2rem 0 1.5rem 0;
+            padding: 1.4rem 1.6rem;
+            background: #faf3ea;
+            border-radius: 36px;
+            text-align: center;
+            font-size: 1rem;
+            border: 1px solid #eddccb;
+        }
+
+        .final-note a {
+            font-weight: 520;
+            color: #8a613b;
+            text-decoration: none;
+            border-bottom: 1px dashed #b28b65;
+            padding-bottom: 0.05rem;
+        }
+
+        .final-note a:hover {
+            color: #583d23;
+            border-bottom-style: solid;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 0.2rem 0;
+            background: #f8f0e6;
+            border-radius: 28px;
+            padding: 1.4rem 1.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 510;
+            font-size: 1.08rem;
+            color: #7c5b36;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            list-style: none;
+        }
+
+        .faq-mini summary::marker {
+            color: #ae7f4d;
+            font-size: 1.3rem;
+        }
+
+        .faq-mini p {
+            margin-top: 0.8rem;
+            font-size: 0.97rem;
+            color: #4f3d2a;
+            padding-left: 0.2rem;
+        }
+
+        .gentle-end {
+            font-size: 1rem;
+            margin-top: 1.6rem;
+            text-align: right;
+            color: #7d6244;
+            border-top: 1px solid #e4d3c0;
+            padding-top: 1.2rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="greeting">✧ 又见面了</div>
+
+        <div class="opening">
+            有些地方，像老朋友一样 —— 不必刻意记起，却总会在某个时刻，自然地回到那里。<br>
+            这次，我们想用一种更温和的方式，聊聊 <strong>乐鱼体育</strong>。
+        </div>
+
+        <div class="story-block">
+            <p>
+                也许你之前来过，也许只是偶然路过。但如果你曾把某个页面加入收藏夹，或者在书签里留过一个位置，那么你会发现：再次访问时，熟悉的感觉还在，而内容也在慢慢生长。
+            </p>
+            <p>
+                收藏一个网页，有时候像是收藏一种心情。不需要太多理由，只是觉得「以后还会再看」。而 <a href="https://cn-wap-leyu.com.cn" class="soft-link">乐鱼体育</a> 这个站点，恰好适合放在这样一个安静的角落。
+            </p>
+        </div>
+
+        <div class="feature-title">✦ 为什么会想再次回来</div>
+        <ul class="feature-grid">
+            <li>信息呈现干净直接，没有过多干扰，浏览节奏可以由自己控制</li>
+            <li>体育相关的动态与内容保持更新，每次回来都可能发现一点新东西</li>
+            <li>界面风格朴素不张扬，读起来不累，适合碎片时间慢慢看</li>
+            <li>收藏之后再次打开，页面加载流畅，体验稳定</li>
+        </ul>
+
+        <div class="final-note">
+            <span>如果你已经把它放在收藏夹里，不妨偶尔再点开看看。</span><br>
+            <span style="font-size: 0.95rem;">如果没有，也可以先记住这里 —— <a href="https://cn-wap-leyu.com.cn">乐鱼体育</a> 一直在这。</span>
+        </div>
+
+        <div class="faq-mini">
+            <details>
+                <summary>一些你可能想了解的</summary>
+                <p>
+                    <strong>Q: 内容更新频率如何？</strong><br>
+                    保持常规更新节奏，不追求铺天盖地，但信息有持续。
+                </p>
+                <p>
+                    <strong>Q: 是否适合在手机上浏览？</strong><br>
+                    是的，页面针对移动端做了适配，阅读和操作都比较顺手。
+                </p>
+                <p>
+                    <strong>Q: 有订阅或者提醒功能吗？</strong><br>
+                    目前以自然访问为主，没有推送打扰。习惯性来看就好。
+                </p>
+            </details>
+        </div>
+
+        <div class="gentle-end">
+            — 收藏是一种安静的约定 —
+        </div>
+    </div>
+</body>
+</html>
