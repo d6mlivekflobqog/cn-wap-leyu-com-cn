@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老虎机游戏 · 产品说明与场景指南</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    line-height: 1.7;
+    background: #f4f5f7;
+    color: #1e1f2b;
+  }
+
+  /* 深色头图 */
+  .hero {
+    background: linear-gradient(145deg, #0b0e1a 0%, #1a1f2f 100%);
+    padding: 3.5rem 1.5rem;
+    text-align: center;
+    color: #e0e6f0;
+    border-bottom: 2px solid #2f374a;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -20%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(220, 180, 90, 0.04), transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.9rem, 5vw, 2.8rem);
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #f0f3fa;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.1rem;
+    color: #b9c2d6;
+    max-width: 600px;
+    margin: 0 auto;
+    border-top: 1px solid #2e374b;
+    padding-top: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  /* 浅色正文区 */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    background: #ffffff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.03);
+    border-radius: 0 0 18px 18px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2.2rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #dce0e8;
+    display: inline-block;
+    letter-spacing: 0.3px;
+  }
+
+  .section-title:first-of-type {
+    margin-top: 0.2rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #2c2e3c;
+  }
+
+  /* 强调色链接（深色头图里用浅色，正文用强调色） */
+  a {
+    color: #b5672b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s, border-bottom 0.15s;
+    border-bottom: 1px solid transparent;
+  }
+
+  a:hover, a:focus {
+    color: #874d1e;
+    border-bottom-color: #874d1e;
+  }
+
+  .hero a {
+    color: #edcb8b;
+    border-bottom: 1px solid rgba(237, 203, 139, 0.3);
+  }
+
+  .hero a:hover {
+    color: #f5dfb2;
+    border-bottom-color: #f5dfb2;
+  }
+
+  /* 特点卡片网格 */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
+    margin: 1.8rem 0 0.5rem;
+  }
+
+  .card {
+    background: #f8faff;
+    border-radius: 16px;
+    padding: 1.4rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 0 0 1px #eef0f5;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.04), 0 0 0 1px #d9dee8;
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    color: #3c3f50;
+    margin-bottom: 0;
+  }
+
+  /* 使用建议 · 场景列表 */
+  .scenario-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.2rem 0 0.8rem;
+  }
+
+  .scenario-item {
+    background: #f1f3f9;
+    padding: 0.8rem 1.4rem;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2b2e3d;
+    border: 1px solid #e2e6ef;
+    transition: background 0.2s;
+  }
+
+  .scenario-item:hover {
+    background: #e6eaf4;
+  }
+
+  /* FAQ 摘要 */
+  .faq-block {
+    background: #f7f9fe;
+    border-radius: 20px;
+    padding: 1.4rem 1.6rem;
+    margin: 1.8rem 0 0.6rem;
+    border-left: 4px solid #b5672b;
+  }
+
+  .faq-block dt {
+    font-weight: 600;
+    margin: 0.8rem 0 0.2rem;
+    color: #1d1f2b;
+  }
+
+  .faq-block dt:first-of-type {
+    margin-top: 0;
+  }
+
+  .faq-block dd {
+    margin-left: 0.8rem;
+    color: #3b3e51;
+    font-size: 0.96rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .faq-block p {
+    margin-bottom: 0.2rem;
+  }
+
+  /* 访问说明小字 */
+  .access-note {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #dfe3ed;
+    font-size: 0.9rem;
+    color: #5b5f72;
+    text-align: center;
+  }
+
+  .access-note a {
+    font-weight: 400;
+    color: #8f6a3a;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e4e8f0;
+    margin: 1.8rem 0 0.2rem;
+  }
+
+  /* 响应式 */
+  @media (max-width: 640px) {
+    .hero {
+      padding: 2.5rem 1rem;
+    }
+    .container {
+      padding: 1.5rem 1rem 2.5rem;
+    }
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+    .scenario-list {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .scenario-item {
+      text-align: center;
+    }
+    .faq-block {
+      padding: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>老虎机游戏 · 产品说明</h1>
+  <div class="tagline">
+    从规则对照到策略延伸，为日常查询与理性参考提供一份清晰索引。
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- 摘要：核心定位 -->
+  <h2 class="section-title">📋 摘要</h2>
+  <p>
+    <a href="https://home-slotgames.com">老虎机游戏</a> 是一个围绕经典与创新老虎机玩法集合的线上站点，旨在帮助玩家快速了解不同机台的特征、赔率结构和主题风格。它并非模拟器或赌场，而是侧重于信息聚合与横向对比，适合在休闲研究、规则确认、或是寻找新机台灵感时使用。站点内容保持定期更新，覆盖从传统三轴机到现代视频老虎机的基本参数。
+  </p>
+
+  <!-- 特点：产品亮点 -->
+  <h2 class="section-title">✨ 亮点</h2>
+  <div class="feature-grid">
+    <div class="card">
+      <h3>📊 机台数据库</h3>
+      <p>按 RTP、波动率、主题分类，支持快速筛选与对照，减少反复搜索的时间成本。</p>
+    </div>
+    <div class="card">
+      <h3>🧩 玩法说明聚合</h3>
+      <p>每个机台页面附带简要机制解读，包括特殊符号、奖励回合与下注范围，便于新手与进阶者查阅。</p>
+    </div>
+    <div class="card">
+      <h3>🔗 延伸阅读</h3>
+      <p>关联相似机台及策略讨论，帮助用户从单一查询拓展至相关品类，提升认知效率。</p>
+    </div>
+    <div class="card">
+      <h3>📆 更新日志</h3>
+      <p>定期收录新上市机台及规则调整，保持信息时效性，避免参考过时参数。</p>
+    </div>
+  </div>
+
+  <!-- 使用建议 -->
+  <h2 class="section-title">💡 使用建议</h2>
+  <p>以下场景特别适合打开 <a href="https://home-slotgames.com">老虎机游戏</a> 进行对照与参考：</p>
+  <div class="scenario-list">
+    <span class="scenario-item">想确认某款机台的赔率表</span>
+    <span class="scenario-item">比较不同主题的波动差异</span>
+    <span class="scenario-item">查找类似游戏以替换体验</span>
+    <span class="scenario-item">翻阅机台更新与版本说明</span>
+    <span class="scenario-item">了解基础规则术语</span>
+  </div>
+  <p style="margin-top: 0.6rem;">以上场景均以信息查阅为前提，不构成任何策略承诺或收益诱导。站点本身不提供真钱游戏或下注入口。</p>
+
+  <!-- FAQ 摘要 -->
+  <h2 class="section-title">❓ 常见问题摘要</h2>
+  <div class="faq-block">
+    <dl>
+      <dt>Q：站点是否提供免费试玩版老虎机？</dt>
+      <dd>A：不直接提供模拟器。页面侧重规则与特性说明，试玩资源请参照各游戏官方渠道。</dd>
+
+      <dt>Q：RTP 数据来源是哪里？</dt>
+      <dd>A：主要来自各游戏开发商的公开技术文档，以及合规审计报告。数据会定期核对，但建议交叉验证。</dd>
+
+      <dt>Q：能否通过该站链接直接参与真钱游戏？</dt>
+      <dd>A：不能。本站仅作为信息索引，不含任何支付、注册或游戏入口。所有外链均有明确标识。</dd>
+
+      <dt>Q：更新频率如何？</dt>
+      <dd>A：大约每两周收录一批新机台或规则修正，重大版本更新会标注日期。</dd>
+    </dl>
+  </div>
+
+  <!-- 可信但克制的访问说明 -->
+  <div class="access-note">
+    <p><strong>访问说明</strong> · 本站为独立信息站点，不隶属于任何运营商。所有数据仅供个人对照研究，不构成投资或游戏建议。请确保在合法区域且年龄达标的前提下浏览相关内容。</p>
+    <p style="margin-top: 0.6rem;">如对某款 <a href="https://home-slotgames.com">老虎机游戏</a> 的具体规则有疑问，建议结合官方规则文档与本站摘要共同参考。页面内容遵循合理引用原则，若有疏漏欢迎反馈。</p>
+  </div>
+
+  <hr>
+  <p style="text-align: center; font-size: 0.85rem; color: #6b7085; margin-top: 0.2rem;">—— 日常查询 · 横向对照 · 延伸阅读 ——</p>
+
+</main>
+
+</body>
+</html>
